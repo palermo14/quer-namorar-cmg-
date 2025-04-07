@@ -1,18 +1,36 @@
 let inicioNamoro;
+let botaoNaoFujao;
+let fugindo = true;
+
+window.onload = () => {
+  botaoNaoFujao = document.querySelector('#buttons button:nth-child(2)');
+  
+  botaoNaoFujao.addEventListener('mouseover', () => {
+    if (fugindo) {
+      const x = Math.floor(Math.random() * 80);
+      const y = Math.floor(Math.random() * 80);
+      botaoNaoFujao.style.position = 'absolute';
+      botaoNaoFujao.style.left = `${x}%`;
+      botaoNaoFujao.style.top = `${y}%`;
+    }
+  });
+};
 
 function responder(escolha) {
   const resposta = document.getElementById("resposta");
   const contador = document.getElementById("contador");
   document.getElementById("buttons").style.display = "none";
 
-  if (escolha) {
-    resposta.textContent = "Agora somos oficialmente namorados!";
-    inicioNamoro = new Date();
-    atualizarContador();
-    setInterval(atualizarContador, 1000);
-  } else {
+  if (!escolha) {
+    fugindo = false; // botão para de fugir
     resposta.textContent = "Ah... tudo bem, vou continuar tentando te conquistar!";
+    return;
   }
+
+  resposta.textContent = "Agora somos oficialmente namorados, Millene!";
+  inicioNamoro = new Date();
+  atualizarContador();
+  setInterval(atualizarContador, 1000);
 }
 
 function atualizarContador() {
