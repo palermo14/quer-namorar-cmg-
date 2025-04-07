@@ -58,3 +58,8 @@ button:last-child {
   font-size: 1.2em;
   color: #555;
 }
+.foto {
+  max-width: 100%;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
