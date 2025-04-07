@@ -4,8 +4,8 @@ let fugindo = true;
 
 window.onload = () => {
   botaoNaoFujao = document.querySelector('#buttons button:nth-child(2)');
-  
-  botaoNaoFujao.addEventListener('mouseover', () => {
+
+  const fugir = () => {
     if (fugindo) {
       const x = Math.floor(Math.random() * 80);
       const y = Math.floor(Math.random() * 80);
@@ -13,7 +13,13 @@ window.onload = () => {
       botaoNaoFujao.style.left = `${x}%`;
       botaoNaoFujao.style.top = `${y}%`;
     }
-  });
+  };
+
+  // Faz o botão fugir no desktop
+  botaoNaoFujao.addEventListener('mouseover', fugir);
+
+  // Faz o botão fugir no celular
+  botaoNaoFujao.addEventListener('touchstart', fugir);
 };
 
 function responder(escolha) {
