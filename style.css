@@ -63,3 +63,7 @@ button:last-child {
   border-radius: 15px;
   margin-bottom: 20px;
 }
+#buttons {
+  position: relative;
+  height: 300px;
+}
